@@ -24,3 +24,27 @@ basicos y al mismo tiempo obligatorios conocer si quieres desempeñarte correcta
 Te aseguro que si entiendes y PRACTICAS los conceptos que se presentan en este proyecto, seras capas de abordar de manera facil otros proyectos relacionados con el aprendizaje reforzado en videojuegos, como por ejemplo los juegos de Atari.
 
 ¡Mucha Suerte!
+
+### Uso  
+
+Para correr el juego en modo "Entrenamiento" se debe ejecutar el siguiente comando:  
+
+main.py  
+
+Para correr el juego en modo "Testeo" se debe ejecutar el siguiente comando:  
+
+main.py -train False  
+
+La diferencia entre el modo Entrenamiento y el modo Testeo, es que el primero se va a encargar de realizar actualizaciones en los pesos de la red neuronal del agente para poder tener mejores puntajes. Ademas se va a encargar de elegir acciones muy poco probables con el fin de realizar exploraciones hacia caminos que a largo plazo podrian otorgarle mayor recompensa. Por otro lado, el modo Testeo NO realiza actualizaciones a la red neuronal y durante el experimento solo elige las acciones que tienen mayor probabilidad de darle una recompensa.  
+
+Por ultimo, es posible realizar cambios en los hiperparametros del proyecto, los cuales se deben colocar junto al comando de la siguiente manera:  
+
+main.py -cambio nuevo_valor  
+
+Siendo el "-cambio" el nombre de uno de los hiperparametros configurados en el archivo "main.py" y "nuevo_valor" un valor valido para ese hiperparametro.  
+
+Ejemplo:  
+
+main.py -lr 0.1  
+
+Con este comando he cambiado el learning rate de 0.0001 (Valor por defecto) a 0.1
