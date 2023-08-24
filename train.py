@@ -5,8 +5,8 @@ from environment import Environment
 from worker import Worker
 import torch
 import numpy as np
-from auxiliars import compute_advantage_and_value_targets, draw_plot
-import time
+from auxiliars import compute_gae, draw_plot
+
 def train(arguments):
     learning_rate = arguments.lr
     gamma = arguments.gamma
@@ -36,7 +36,7 @@ def train(arguments):
 
         scores_history.append(max_score)
 
-        advantages = compute_advantage_and_value_targets(batch_rewards, batch_values, batch_dones, gamma, lam)
+        advantages = compute_gae(batch_rewards, batch_values, batch_dones, gamma, lam)
 
         batch_observations = torch.stack(batch_observations[:-1])
         batch_actions = np.stack(batch_actions[:-1])
